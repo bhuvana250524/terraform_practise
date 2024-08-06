@@ -6,7 +6,7 @@ resource "aws_vpc" "VPC1" {
    }
 }
 resource "aws_subnet" "subnet1" {
-    vpc_id = aws_vpc.VPC1
+    vpc_id = aws_vpc.VPC1.id
     cidr_block = "10.0.1.0/24"
     tags = {
         name = var.subnet
@@ -16,7 +16,7 @@ resource "aws_subnet" "subnet1" {
 resource "aws_instance" "vm1" {
     ami = var.ami
     instance_type = var.instance_type 
-    subnet_id = aws_subnet.subnet1
+    subnet_id = aws_subnet.subnet1.id
     tags = {
       name = var.vmname
     }
