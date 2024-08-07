@@ -1,4 +1,4 @@
-# create VPC
+#create VPC
 resource "aws_vpc" "VPC1" {
    cidr_block = "10.0.0.0/16"
    tags = {
@@ -16,7 +16,7 @@ resource "aws_subnet" "subnet1" {
 resource "aws_instance" "vm1" {
     ami = var.ami
     instance_type = var.instance_type 
-    subnet_id = aws_subnet.subnet1.id
+    #subnet_id = aws_subnet.subnet1.id
     tags = {
       name = var.vmname
     }
